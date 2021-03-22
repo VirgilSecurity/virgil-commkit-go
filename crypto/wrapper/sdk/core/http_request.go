@@ -3,7 +3,6 @@ package sdk_core
 // #include <virgil/sdk/core/vssc_core_sdk_public.h>
 import "C"
 import (
-	"fmt"
 	"unsafe"
 )
 import "runtime"
@@ -34,7 +33,6 @@ func NewHttpRequest() *HttpRequest {
  */
 func NewHttpRequestWithCtx(pointer unsafe.Pointer) *HttpRequest {
 	ctx := (*C.vssc_http_request_t /*ct2*/)(pointer)
-	fmt.Println("ctx:", ctx)
 	obj := &HttpRequest{
 		cCtx: ctx,
 	}
