@@ -104,7 +104,7 @@ func (obj *BrainkeyClient) MakeRequestHardenPoint(blindedPoint []byte) *sdk_core
 
 	runtime.KeepAlive(obj)
 
-	return sdk_core.NewHttpRequestWithCtx(proxyResult) /* r6 */
+	return sdk_core.NewHttpRequestWithCtx(unsafe.Pointer(proxyResult)) /* r6 */
 }
 
 /*
