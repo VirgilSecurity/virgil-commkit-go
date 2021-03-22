@@ -32,9 +32,9 @@ func NewHttpRequest() *HttpRequest {
 /* Acquire C context.
 * Note. This method is used in generated code only, and SHOULD NOT be used in another way.
  */
-func NewHttpRequestWithCtx(anyctx interface{}) *HttpRequest {
-	ctx := (*C.vssc_http_request_t /*ct2*/)(unsafe.Pointer(&anyctx))
-	fmt.Println("ctx:", *ctx)
+func NewHttpRequestWithCtx(pointer unsafe.Pointer) *HttpRequest {
+	ctx := (*C.vssc_http_request_t /*ct2*/)(pointer)
+	fmt.Println("ctx:", ctx)
 	obj := &HttpRequest{
 		cCtx: ctx,
 	}
