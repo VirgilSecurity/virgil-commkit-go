@@ -2,7 +2,10 @@ package sdk_core
 
 // #include <virgil/sdk/core/vssc_core_sdk_public.h>
 import "C"
-import "unsafe"
+import (
+	"fmt"
+	"unsafe"
+)
 import "runtime"
 
 /*
@@ -30,8 +33,10 @@ func NewHttpRequest() *HttpRequest {
 * Note. This method is used in generated code only, and SHOULD NOT be used in another way.
  */
 func NewHttpRequestWithCtx(anyctx interface{}) *HttpRequest {
+	fmt.Println(anyctx)
 	ctx, ok := anyctx.(*C.vssc_http_request_t /*ct2*/)
 	if !ok {
+		fmt.Println("cast failed")
 		return nil //TODO, &CoreSdkError{-1,"Cast error for struct HttpRequest."}
 	}
 	obj := &HttpRequest{
