@@ -106,7 +106,7 @@ func (obj *CardClient) MakeRequestPublishCard(rawCard *RawCard) *HttpRequest {
 
 	runtime.KeepAlive(rawCard)
 
-	return NewHttpRequestWithCtx(proxyResult) /* r6 */
+	return NewHttpRequestWithCtx(unsafe.Pointer(proxyResult)) /* r6 */
 }
 
 /*
@@ -143,7 +143,7 @@ func (obj *CardClient) MakeRequestGetCard(cardId string) *HttpRequest {
 
 	runtime.KeepAlive(cardId)
 
-	return NewHttpRequestWithCtx(proxyResult) /* r6 */
+	return NewHttpRequestWithCtx(unsafe.Pointer(proxyResult)) /* r6 */
 }
 
 /*
@@ -180,7 +180,7 @@ func (obj *CardClient) MakeRequestSearchCardsWithIdentity(identity string) *Http
 
 	runtime.KeepAlive(identity)
 
-	return NewHttpRequestWithCtx(proxyResult) /* r6 */
+	return NewHttpRequestWithCtx(unsafe.Pointer(proxyResult)) /* r6 */
 }
 
 /*
@@ -195,7 +195,7 @@ func (obj *CardClient) MakeRequestSearchCardsWithIdentities(identities *StringLi
 
 	runtime.KeepAlive(identities)
 
-	return NewHttpRequestWithCtx(proxyResult) /* r6 */
+	return NewHttpRequestWithCtx(unsafe.Pointer(proxyResult)) /* r6 */
 }
 
 /*
@@ -234,5 +234,5 @@ func (obj *CardClient) MakeRequestRevokeCardWithId(cardId string) *HttpRequest {
 
 	runtime.KeepAlive(cardId)
 
-	return NewHttpRequestWithCtx(proxyResult) /* r6 */
+	return NewHttpRequestWithCtx(unsafe.Pointer(proxyResult)) /* r6 */
 }
