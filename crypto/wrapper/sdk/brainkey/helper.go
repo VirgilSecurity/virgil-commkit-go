@@ -1,5 +1,6 @@
 package sdk_brainkey
 
+// #include <virgil/crypto/common/vsc_buffer.h>
 // #include <virgil/sdk/brainkey/vssb_brainkey_sdk_public.h>
 import "C"
 import "unsafe"
