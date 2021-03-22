@@ -1,7 +1,7 @@
-prefix=/tmp/tmp.4FZgmmcH8T/build/thirdparty/json_c/json_c
-exec_prefix=/tmp/tmp.4FZgmmcH8T/build/thirdparty/json_c/json_c
-libdir=/tmp/tmp.4FZgmmcH8T/build/thirdparty/json_c/json_c/lib
-includedir=/tmp/tmp.4FZgmmcH8T/build/thirdparty/json_c/json_c/include
+prefix=/tmp/tmp.v2qEHxoSQd/build/thirdparty/json_c/json_c
+exec_prefix=/tmp/tmp.v2qEHxoSQd/build/thirdparty/json_c/json_c
+libdir=/tmp/tmp.v2qEHxoSQd/build/thirdparty/json_c/json_c/lib
+includedir=/tmp/tmp.v2qEHxoSQd/build/thirdparty/json_c/json_c/include
 
 Name: json-c
 Description: A JSON implementation in C

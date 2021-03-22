@@ -116,15 +116,15 @@ vssq_messenger_cloud_fs_file_info_new(void);
 //
 VSSQ_PUBLIC void
 vssq_messenger_cloud_fs_file_info_init_with(vssq_messenger_cloud_fs_file_info_t *self, vsc_str_t id, vsc_str_t name,
-        vsc_str_t type, size_t size, size_t created_at, size_t updated_at, vsc_str_t updated_by);
+        vsc_str_t mime_tipe, size_t size, size_t created_at, size_t updated_at, vsc_str_t updated_by);
 
 //
 //  Allocate class context and perform it's initialization.
 //  Create fully defined object.
 //
 VSSQ_PUBLIC vssq_messenger_cloud_fs_file_info_t *
-vssq_messenger_cloud_fs_file_info_new_with(vsc_str_t id, vsc_str_t name, vsc_str_t type, size_t size, size_t created_at,
-        size_t updated_at, vsc_str_t updated_by);
+vssq_messenger_cloud_fs_file_info_new_with(vsc_str_t id, vsc_str_t name, vsc_str_t mime_tipe, size_t size,
+        size_t created_at, size_t updated_at, vsc_str_t updated_by);
 
 //
 //  Release all inner resources and deallocate context if needed.
@@ -166,7 +166,7 @@ VSSQ_PUBLIC vsc_str_t
 vssq_messenger_cloud_fs_file_info_name(const vssq_messenger_cloud_fs_file_info_t *self);
 
 //
-//  Return file type, aka "text/plain".
+//  Return mime tipe, aka "text/plain".
 //
 VSSQ_PUBLIC vsc_str_t
 vssq_messenger_cloud_fs_file_info_type(const vssq_messenger_cloud_fs_file_info_t *self);
