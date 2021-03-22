@@ -5,7 +5,7 @@ echo $SCRIPT_FOLDER
 TEMPDIR=`mktemp -d`
 
 if [[ -z "$BRANCH" ]]; then
-  BRANCH=master;
+  BRANCH="feature/string-type-go";
 fi
 
 git clone -b $BRANCH https://github.com/VirgilSecurity/virgil-crypto-c.git $TEMPDIR
