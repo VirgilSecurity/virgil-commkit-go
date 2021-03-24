@@ -20,13 +20,6 @@ if [ "$RETRES" == "0" ]; then
   	echo  $i
     sed -i -e 's/virgil\/foundation/github.com\/VirgilSecurity\/virgil-commkit-go\/crypto\/wrapper\/foundation/g' $i
   done;
-
-  for i in $(grep -R "virgil/sdk/core" $SCRIPT_FOLDER/../{foundation,phe,sdk} | cut -d ":" -f 1)
-  do
-  	echo  $i
-    sed -i -e 's/virgil\/sdk\/core/github.com\/VirgilSecurity\/virgil-commkit-go\/crypto\/wrapper\/sdk\/core/g' $i
-  done;
-
   gofmt -l -s -w $SCRIPT_FOLDER/../
 fi
 rm -rf $TEMPDIR
