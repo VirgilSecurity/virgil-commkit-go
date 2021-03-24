@@ -1,6 +1,6 @@
 package sdk_core
 
-// #include <virgil/sdk/core/vssc_core_sdk_public.h>
+// #include <github.com/VirgilSecurity/virgil-commkit-go/crypto/wrapper/sdk/core/vssc_core_sdk_public.h>
 import "C"
 import "unsafe"
 import "runtime"
@@ -29,11 +29,8 @@ func NewStringList() *StringList {
 /* Acquire C context.
 * Note. This method is used in generated code only, and SHOULD NOT be used in another way.
  */
-func NewStringListWithCtx(anyctx interface{}) *StringList {
-	ctx, ok := anyctx.(*C.vssc_string_list_t /*ct2*/)
-	if !ok {
-		return nil //TODO, &CoreSdkError{-1,"Cast error for struct StringList."}
-	}
+func NewStringListWithCtx(pointer unsafe.Pointer) *StringList {
+	ctx := (*C.vssc_string_list_t /*ct2*/)(pointer)
 	obj := &StringList{
 		cCtx: ctx,
 	}
@@ -44,11 +41,8 @@ func NewStringListWithCtx(anyctx interface{}) *StringList {
 /* Acquire retained C context.
 * Note. This method is used in generated code only, and SHOULD NOT be used in another way.
  */
-func NewStringListCopy(anyctx interface{}) *StringList {
-	ctx, ok := anyctx.(*C.vssc_string_list_t /*ct2*/)
-	if !ok {
-		return nil //TODO, &CoreSdkError{-1,"Cast error for struct StringList."}
-	}
+func NewStringListCopy(pointer unsafe.Pointer) *StringList {
+	ctx := (*C.vssc_string_list_t /*ct2*/)(pointer)
 	obj := &StringList{
 		cCtx: C.vssc_string_list_shallow_copy(ctx),
 	}
@@ -132,7 +126,7 @@ func (obj *StringList) Next() *StringList {
 
 	runtime.KeepAlive(obj)
 
-	return NewStringListCopy(proxyResult) /* r5 */
+	return NewStringListCopy(unsafe.Pointer(proxyResult)) /* r5 */
 }
 
 /*
@@ -154,7 +148,7 @@ func (obj *StringList) Prev() *StringList {
 
 	runtime.KeepAlive(obj)
 
-	return NewStringListCopy(proxyResult) /* r5 */
+	return NewStringListCopy(unsafe.Pointer(proxyResult)) /* r5 */
 }
 
 /*

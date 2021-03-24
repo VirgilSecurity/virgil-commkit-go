@@ -30,11 +30,8 @@ func NewBrainkeyClient() *BrainkeyClient {
 /* Acquire C context.
 * Note. This method is used in generated code only, and SHOULD NOT be used in another way.
  */
-func NewBrainkeyClientWithCtx(anyctx interface{}) *BrainkeyClient {
-	ctx, ok := anyctx.(*C.vssb_brainkey_client_t /*ct2*/)
-	if !ok {
-		return nil //TODO, &BrainkeySdkError{-1,"Cast error for struct BrainkeyClient."}
-	}
+func NewBrainkeyClientWithCtx(pointer unsafe.Pointer) *BrainkeyClient {
+	ctx := (*C.vssb_brainkey_client_t /*ct2*/)(pointer)
 	obj := &BrainkeyClient{
 		cCtx: ctx,
 	}
@@ -45,11 +42,8 @@ func NewBrainkeyClientWithCtx(anyctx interface{}) *BrainkeyClient {
 /* Acquire retained C context.
 * Note. This method is used in generated code only, and SHOULD NOT be used in another way.
  */
-func NewBrainkeyClientCopy(anyctx interface{}) *BrainkeyClient {
-	ctx, ok := anyctx.(*C.vssb_brainkey_client_t /*ct2*/)
-	if !ok {
-		return nil //TODO, &BrainkeySdkError{-1,"Cast error for struct BrainkeyClient."}
-	}
+func NewBrainkeyClientCopy(pointer unsafe.Pointer) *BrainkeyClient {
+	ctx := (*C.vssb_brainkey_client_t /*ct2*/)(pointer)
 	obj := &BrainkeyClient{
 		cCtx: C.vssb_brainkey_client_shallow_copy(ctx),
 	}
@@ -123,5 +117,5 @@ func BrainkeyClientProcessResponseHardenPoint(response *sdk_core.HttpResponse) (
 
 	runtime.KeepAlive(response)
 
-	return NewBrainkeyHardenedPointWithCtx(proxyResult) /* r6 */, nil
+	return NewBrainkeyHardenedPointWithCtx(unsafe.Pointer(proxyResult)) /* r6 */, nil
 }

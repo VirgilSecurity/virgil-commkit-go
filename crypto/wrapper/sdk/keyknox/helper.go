@@ -1,5 +1,9 @@
 package sdk_keyknox
 
+// #include <virgil/crypto/common/vsc_data.h>
+// #include <virgil/crypto/common/vsc_buffer.h>
+// #include <virgil/crypto/common/vsc_str.h>
+// #include <virgil/crypto/common/vsc_str_buffer.h>
 // #include <virgil/sdk/keyknox/vssk_keyknox_sdk_public.h>
 import "C"
 import "unsafe"

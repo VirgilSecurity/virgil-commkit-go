@@ -30,11 +30,8 @@ func NewKeyknoxEntry() *KeyknoxEntry {
 /* Acquire C context.
 * Note. This method is used in generated code only, and SHOULD NOT be used in another way.
  */
-func NewKeyknoxEntryWithCtx(anyctx interface{}) *KeyknoxEntry {
-	ctx, ok := anyctx.(*C.vssk_keyknox_entry_t /*ct2*/)
-	if !ok {
-		return nil //TODO, &KeyknoxSdkError{-1,"Cast error for struct KeyknoxEntry."}
-	}
+func NewKeyknoxEntryWithCtx(pointer unsafe.Pointer) *KeyknoxEntry {
+	ctx := (*C.vssk_keyknox_entry_t /*ct2*/)(pointer)
 	obj := &KeyknoxEntry{
 		cCtx: ctx,
 	}
@@ -45,11 +42,8 @@ func NewKeyknoxEntryWithCtx(anyctx interface{}) *KeyknoxEntry {
 /* Acquire retained C context.
 * Note. This method is used in generated code only, and SHOULD NOT be used in another way.
  */
-func NewKeyknoxEntryCopy(anyctx interface{}) *KeyknoxEntry {
-	ctx, ok := anyctx.(*C.vssk_keyknox_entry_t /*ct2*/)
-	if !ok {
-		return nil //TODO, &KeyknoxSdkError{-1,"Cast error for struct KeyknoxEntry."}
-	}
+func NewKeyknoxEntryCopy(pointer unsafe.Pointer) *KeyknoxEntry {
+	ctx := (*C.vssk_keyknox_entry_t /*ct2*/)(pointer)
 	obj := &KeyknoxEntry{
 		cCtx: C.vssk_keyknox_entry_shallow_copy(ctx),
 	}
@@ -235,7 +229,7 @@ func (obj *KeyknoxEntry) Identities() *sdk_core.StringList {
 
 	runtime.KeepAlive(obj)
 
-	return sdk_core.NewStringListCopy(proxyResult) /* r5 */
+	return sdk_core.NewStringListCopy(unsafe.Pointer(proxyResult)) /* r5 */
 }
 
 /*

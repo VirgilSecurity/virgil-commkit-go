@@ -1,6 +1,6 @@
 package sdk_core
 
-// #include <virgil/sdk/core/vssc_core_sdk_public.h>
+// #include <github.com/VirgilSecurity/virgil-commkit-go/crypto/wrapper/sdk/core/vssc_core_sdk_public.h>
 import "C"
 import "runtime"
 import "unsafe"
@@ -35,7 +35,7 @@ func VirgilHttpClientSend(httpRequest *HttpRequest) (*HttpResponse, error) {
 
 	runtime.KeepAlive(httpRequest)
 
-	return NewHttpResponseWithCtx(proxyResult) /* r6 */, nil
+	return NewHttpResponseWithCtx(unsafe.Pointer(proxyResult)) /* r6 */, nil
 }
 
 /*
@@ -61,5 +61,5 @@ func VirgilHttpClientSendWithCa(httpRequest *HttpRequest, caBundlePath string) (
 
 	runtime.KeepAlive(caBundlePath)
 
-	return NewHttpResponseWithCtx(proxyResult) /* r6 */, nil
+	return NewHttpResponseWithCtx(unsafe.Pointer(proxyResult)) /* r6 */, nil
 }

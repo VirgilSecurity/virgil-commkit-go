@@ -29,11 +29,8 @@ func NewBrainkeyHardenedPoint() *BrainkeyHardenedPoint {
 /* Acquire C context.
 * Note. This method is used in generated code only, and SHOULD NOT be used in another way.
  */
-func NewBrainkeyHardenedPointWithCtx(anyctx interface{}) *BrainkeyHardenedPoint {
-	ctx, ok := anyctx.(*C.vssb_brainkey_hardened_point_t /*ct2*/)
-	if !ok {
-		return nil //TODO, &BrainkeySdkError{-1,"Cast error for struct BrainkeyHardenedPoint."}
-	}
+func NewBrainkeyHardenedPointWithCtx(pointer unsafe.Pointer) *BrainkeyHardenedPoint {
+	ctx := (*C.vssb_brainkey_hardened_point_t /*ct2*/)(pointer)
 	obj := &BrainkeyHardenedPoint{
 		cCtx: ctx,
 	}
@@ -44,11 +41,8 @@ func NewBrainkeyHardenedPointWithCtx(anyctx interface{}) *BrainkeyHardenedPoint 
 /* Acquire retained C context.
 * Note. This method is used in generated code only, and SHOULD NOT be used in another way.
  */
-func NewBrainkeyHardenedPointCopy(anyctx interface{}) *BrainkeyHardenedPoint {
-	ctx, ok := anyctx.(*C.vssb_brainkey_hardened_point_t /*ct2*/)
-	if !ok {
-		return nil //TODO, &BrainkeySdkError{-1,"Cast error for struct BrainkeyHardenedPoint."}
-	}
+func NewBrainkeyHardenedPointCopy(pointer unsafe.Pointer) *BrainkeyHardenedPoint {
+	ctx := (*C.vssb_brainkey_hardened_point_t /*ct2*/)(pointer)
 	obj := &BrainkeyHardenedPoint{
 		cCtx: C.vssb_brainkey_hardened_point_shallow_copy(ctx),
 	}

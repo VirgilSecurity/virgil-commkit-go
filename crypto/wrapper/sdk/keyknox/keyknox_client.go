@@ -30,11 +30,8 @@ func NewKeyknoxClient() *KeyknoxClient {
 /* Acquire C context.
 * Note. This method is used in generated code only, and SHOULD NOT be used in another way.
  */
-func NewKeyknoxClientWithCtx(anyctx interface{}) *KeyknoxClient {
-	ctx, ok := anyctx.(*C.vssk_keyknox_client_t /*ct2*/)
-	if !ok {
-		return nil //TODO, &KeyknoxSdkError{-1,"Cast error for struct KeyknoxClient."}
-	}
+func NewKeyknoxClientWithCtx(pointer unsafe.Pointer) *KeyknoxClient {
+	ctx := (*C.vssk_keyknox_client_t /*ct2*/)(pointer)
 	obj := &KeyknoxClient{
 		cCtx: ctx,
 	}
@@ -45,11 +42,8 @@ func NewKeyknoxClientWithCtx(anyctx interface{}) *KeyknoxClient {
 /* Acquire retained C context.
 * Note. This method is used in generated code only, and SHOULD NOT be used in another way.
  */
-func NewKeyknoxClientCopy(anyctx interface{}) *KeyknoxClient {
-	ctx, ok := anyctx.(*C.vssk_keyknox_client_t /*ct2*/)
-	if !ok {
-		return nil //TODO, &KeyknoxSdkError{-1,"Cast error for struct KeyknoxClient."}
-	}
+func NewKeyknoxClientCopy(pointer unsafe.Pointer) *KeyknoxClient {
+	ctx := (*C.vssk_keyknox_client_t /*ct2*/)(pointer)
 	obj := &KeyknoxClient{
 		cCtx: C.vssk_keyknox_client_shallow_copy(ctx),
 	}
@@ -104,7 +98,7 @@ func (obj *KeyknoxClient) MakeRequestPush(newEntry *KeyknoxEntry) *sdk_core.Http
 
 	runtime.KeepAlive(newEntry)
 
-	return sdk_core.NewHttpRequestWithCtx(proxyResult) /* r6 */
+	return sdk_core.NewHttpRequestWithCtx(unsafe.Pointer(proxyResult)) /* r6 */
 }
 
 /*
@@ -123,7 +117,7 @@ func KeyknoxClientProcessResponsePush(response *sdk_core.HttpResponse) (*Keyknox
 
 	runtime.KeepAlive(response)
 
-	return NewKeyknoxEntryWithCtx(proxyResult) /* r6 */, nil
+	return NewKeyknoxEntryWithCtx(unsafe.Pointer(proxyResult)) /* r6 */, nil
 }
 
 /*
@@ -156,7 +150,7 @@ func (obj *KeyknoxClient) MakeRequestPull(root string, path string, key string, 
 
 	runtime.KeepAlive(identity)
 
-	return sdk_core.NewHttpRequestWithCtx(proxyResult) /* r6 */
+	return sdk_core.NewHttpRequestWithCtx(unsafe.Pointer(proxyResult)) /* r6 */
 }
 
 /*
@@ -175,7 +169,7 @@ func KeyknoxClientProcessResponsePull(response *sdk_core.HttpResponse) (*Keyknox
 
 	runtime.KeepAlive(response)
 
-	return NewKeyknoxEntryWithCtx(proxyResult) /* r6 */, nil
+	return NewKeyknoxEntryWithCtx(unsafe.Pointer(proxyResult)) /* r6 */, nil
 }
 
 /*
@@ -210,7 +204,7 @@ func (obj *KeyknoxClient) MakeRequestReset(root string, path string, key string,
 
 	runtime.KeepAlive(identity)
 
-	return sdk_core.NewHttpRequestWithCtx(proxyResult) /* r6 */
+	return sdk_core.NewHttpRequestWithCtx(unsafe.Pointer(proxyResult)) /* r6 */
 }
 
 /*
@@ -229,7 +223,7 @@ func KeyknoxClientProcessResponseReset(response *sdk_core.HttpResponse) (*Keykno
 
 	runtime.KeepAlive(response)
 
-	return NewKeyknoxEntryWithCtx(proxyResult) /* r6 */, nil
+	return NewKeyknoxEntryWithCtx(unsafe.Pointer(proxyResult)) /* r6 */, nil
 }
 
 /*
@@ -258,7 +252,7 @@ func (obj *KeyknoxClient) MakeRequestGetKeys(root string, path string, identity 
 
 	runtime.KeepAlive(identity)
 
-	return sdk_core.NewHttpRequestWithCtx(proxyResult) /* r6 */
+	return sdk_core.NewHttpRequestWithCtx(unsafe.Pointer(proxyResult)) /* r6 */
 }
 
 /*
@@ -277,5 +271,5 @@ func KeyknoxClientProcessResponseGetKeys(response *sdk_core.HttpResponse) (*sdk_
 
 	runtime.KeepAlive(response)
 
-	return sdk_core.NewStringListWithCtx(proxyResult) /* r6 */, nil
+	return sdk_core.NewStringListWithCtx(unsafe.Pointer(proxyResult)) /* r6 */, nil
 }
