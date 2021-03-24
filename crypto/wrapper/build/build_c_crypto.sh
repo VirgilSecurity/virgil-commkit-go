@@ -37,7 +37,7 @@ if [[ -d "./pkg/${OS}_${ARCH}/lib64" ]]; then
   mv ./pkg/${OS}_${ARCH}/lib64 ./pkg/${OS}_${ARCH}/lib
 fi && \
 rm -rf ratchet
-go test ./...
+#go test ./...
 
 RETRES=$?
 echo $RETRES
