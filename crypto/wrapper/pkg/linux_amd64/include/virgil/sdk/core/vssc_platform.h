@@ -177,7 +177,7 @@ extern "C" {
 #endif
 
 #ifndef VSSC_VIRGIL_HTTP_CLIENT_DEBUG
-#define VSSC_VIRGIL_HTTP_CLIENT_DEBUG 0
+#define VSSC_VIRGIL_HTTP_CLIENT_DEBUG 1
 #endif
 
 #ifndef VSSC_KEY_HANDLER
