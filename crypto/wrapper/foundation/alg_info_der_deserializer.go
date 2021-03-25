@@ -49,7 +49,7 @@ func (obj *AlgInfoDerDeserializer) DeserializeInplace() (AlgInfo, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapAlgInfo(proxyResult) /* r4 */
+	return ImplementationWrapAlgInfo(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /* Handle underlying C context. */
@@ -125,5 +125,5 @@ func (obj *AlgInfoDerDeserializer) Deserialize(data []byte) (AlgInfo, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapAlgInfo(proxyResult) /* r4 */
+	return ImplementationWrapAlgInfo(unsafe.Pointer(proxyResult)) /* r4 */
 }

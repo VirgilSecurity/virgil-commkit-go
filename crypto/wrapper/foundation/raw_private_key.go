@@ -135,7 +135,7 @@ func (obj *RawPrivateKey) AlgInfo() (AlgInfo, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapAlgInfoCopy(proxyResult) /* r4.1 */
+	return ImplementationWrapAlgInfoCopy(unsafe.Pointer(proxyResult)) /* r4.1 */
 }
 
 /*
@@ -180,5 +180,5 @@ func (obj *RawPrivateKey) ExtractPublicKey() (PublicKey, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapPublicKey(proxyResult) /* r4 */
+	return ImplementationWrapPublicKey(unsafe.Pointer(proxyResult)) /* r4 */
 }

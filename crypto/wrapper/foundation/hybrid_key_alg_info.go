@@ -20,7 +20,7 @@ func (obj *HybridKeyAlgInfo) FirstKeyAlgInfo() (AlgInfo, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapAlgInfoCopy(proxyResult) /* r4.1 */
+	return ImplementationWrapAlgInfoCopy(unsafe.Pointer(proxyResult)) /* r4.1 */
 }
 
 /*
@@ -31,7 +31,7 @@ func (obj *HybridKeyAlgInfo) SecondKeyAlgInfo() (AlgInfo, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapAlgInfoCopy(proxyResult) /* r4.1 */
+	return ImplementationWrapAlgInfoCopy(unsafe.Pointer(proxyResult)) /* r4.1 */
 }
 
 /* Handle underlying C context. */

@@ -95,7 +95,7 @@ func (obj *Kdf1) ProduceAlgInfo() (AlgInfo, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapAlgInfo(proxyResult) /* r4 */
+	return ImplementationWrapAlgInfo(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*

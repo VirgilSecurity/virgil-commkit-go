@@ -22,7 +22,7 @@ func (obj *HybridPublicKey) FirstKey() (PublicKey, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapPublicKeyCopy(proxyResult) /* r4.1 */
+	return ImplementationWrapPublicKeyCopy(unsafe.Pointer(proxyResult)) /* r4.1 */
 }
 
 /*
@@ -33,7 +33,7 @@ func (obj *HybridPublicKey) SecondKey() (PublicKey, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapPublicKeyCopy(proxyResult) /* r4.1 */
+	return ImplementationWrapPublicKeyCopy(unsafe.Pointer(proxyResult)) /* r4.1 */
 }
 
 /* Handle underlying C context. */
@@ -111,7 +111,7 @@ func (obj *HybridPublicKey) AlgInfo() (AlgInfo, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapAlgInfoCopy(proxyResult) /* r4.1 */
+	return ImplementationWrapAlgInfoCopy(unsafe.Pointer(proxyResult)) /* r4.1 */
 }
 
 /*

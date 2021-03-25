@@ -53,7 +53,7 @@ func (obj *Rsa) GenerateKey(bitlen uint) (PrivateKey, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapPrivateKey(proxyResult) /* r4 */
+	return ImplementationWrapPrivateKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /* Handle underlying C context. */
@@ -159,7 +159,7 @@ func (obj *Rsa) GenerateEphemeralKey(key Key) (PrivateKey, error) {
 
 	runtime.KeepAlive(key)
 
-	return ImplementationWrapPrivateKey(proxyResult) /* r4 */
+	return ImplementationWrapPrivateKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*
@@ -187,7 +187,7 @@ func (obj *Rsa) ImportPublicKey(rawKey *RawPublicKey) (PublicKey, error) {
 
 	runtime.KeepAlive(rawKey)
 
-	return ImplementationWrapPublicKey(proxyResult) /* r4 */
+	return ImplementationWrapPublicKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*
@@ -240,7 +240,7 @@ func (obj *Rsa) ImportPrivateKey(rawKey *RawPrivateKey) (PrivateKey, error) {
 
 	runtime.KeepAlive(rawKey)
 
-	return ImplementationWrapPrivateKey(proxyResult) /* r4 */
+	return ImplementationWrapPrivateKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*

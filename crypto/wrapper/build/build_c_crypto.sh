@@ -14,6 +14,7 @@ git clone -b $BRANCH https://github.com/VirgilSecurity/virgil-crypto-c.git $TEMP
 mkdir $TEMPDIR/build && \
 cd $TEMPDIR/build && \
 cmake \
+    -DVSSC_VIRGIL_HTTP_CLIENT_DEBUG=ON \
     -DVIRGIL_WRAP_GO=OFF \
     -DVIRGIL_LIB_PYTHIA=OFF \
     -DVIRGIL_SDK_PYTHIA=OFF \

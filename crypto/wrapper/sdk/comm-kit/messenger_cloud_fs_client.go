@@ -355,5 +355,5 @@ func (obj *MessengerCloudFsClient) UserPrivateKey() (foundation.PrivateKey, erro
 
 	runtime.KeepAlive(obj)
 
-	return foundation.ImplementationWrapPrivateKeyCopy(proxyResult) /* r4.1 */
+	return foundation.ImplementationWrapPrivateKeyCopy(unsafe.Pointer(proxyResult)) /* r4.1 */
 }

@@ -74,7 +74,7 @@ func (obj *HybridKeyAlg) MakeKey(firstKey PrivateKey, secondKey PrivateKey) (Pri
 
 	runtime.KeepAlive(secondKey)
 
-	return ImplementationWrapPrivateKey(proxyResult) /* r4 */
+	return ImplementationWrapPrivateKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /* Handle underlying C context. */
@@ -180,7 +180,7 @@ func (obj *HybridKeyAlg) GenerateEphemeralKey(key Key) (PrivateKey, error) {
 
 	runtime.KeepAlive(key)
 
-	return ImplementationWrapPrivateKey(proxyResult) /* r4 */
+	return ImplementationWrapPrivateKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*
@@ -208,7 +208,7 @@ func (obj *HybridKeyAlg) ImportPublicKey(rawKey *RawPublicKey) (PublicKey, error
 
 	runtime.KeepAlive(rawKey)
 
-	return ImplementationWrapPublicKey(proxyResult) /* r4 */
+	return ImplementationWrapPublicKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*
@@ -261,7 +261,7 @@ func (obj *HybridKeyAlg) ImportPrivateKey(rawKey *RawPrivateKey) (PrivateKey, er
 
 	runtime.KeepAlive(rawKey)
 
-	return ImplementationWrapPrivateKey(proxyResult) /* r4 */
+	return ImplementationWrapPrivateKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*

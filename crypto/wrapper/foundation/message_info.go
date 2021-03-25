@@ -77,7 +77,7 @@ func (obj *MessageInfo) DataEncryptionAlgInfo() (AlgInfo, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapAlgInfoCopy(proxyResult) /* r4.1 */
+	return ImplementationWrapAlgInfoCopy(unsafe.Pointer(proxyResult)) /* r4.1 */
 }
 
 /*
@@ -145,7 +145,7 @@ func (obj *MessageInfo) CipherKdfAlgInfo() (AlgInfo, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapAlgInfoCopy(proxyResult) /* r4.1 */
+	return ImplementationWrapAlgInfoCopy(unsafe.Pointer(proxyResult)) /* r4.1 */
 }
 
 /*
@@ -167,7 +167,7 @@ func (obj *MessageInfo) CipherPaddingAlgInfo() (AlgInfo, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapAlgInfoCopy(proxyResult) /* r4.1 */
+	return ImplementationWrapAlgInfoCopy(unsafe.Pointer(proxyResult)) /* r4.1 */
 }
 
 /*

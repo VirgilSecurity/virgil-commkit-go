@@ -89,7 +89,7 @@ func (obj *Aes256Gcm) ProduceAlgInfo() (AlgInfo, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapAlgInfo(proxyResult) /* r4 */
+	return ImplementationWrapAlgInfo(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*

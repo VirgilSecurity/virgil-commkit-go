@@ -133,7 +133,7 @@ func (obj *Card) PublicKey() (foundation.PublicKey, error) {
 
 	runtime.KeepAlive(obj)
 
-	return foundation.ImplementationWrapPublicKeyCopy(proxyResult) /* r4.1 */
+	return foundation.ImplementationWrapPublicKeyCopy(unsafe.Pointer(proxyResult)) /* r4.1 */
 }
 
 /*

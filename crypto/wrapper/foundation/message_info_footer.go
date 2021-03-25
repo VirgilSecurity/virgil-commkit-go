@@ -98,7 +98,7 @@ func (obj *MessageInfoFooter) SignerHashAlgInfo() (AlgInfo, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapAlgInfoCopy(proxyResult) /* r4.1 */
+	return ImplementationWrapAlgInfoCopy(unsafe.Pointer(proxyResult)) /* r4.1 */
 }
 
 /*

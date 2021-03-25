@@ -124,5 +124,5 @@ func (obj *KeyHandler) Key() (foundation.Key, error) {
 
 	runtime.KeepAlive(obj)
 
-	return foundation.ImplementationWrapKeyCopy(proxyResult) /* r4.1 */
+	return foundation.ImplementationWrapKeyCopy(unsafe.Pointer(proxyResult)) /* r4.1 */
 }

@@ -127,7 +127,7 @@ func (obj *KeyProvider) GeneratePrivateKey(algId AlgId) (PrivateKey, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapPrivateKey(proxyResult) /* r4 */
+	return ImplementationWrapPrivateKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*
@@ -155,7 +155,7 @@ func (obj *KeyProvider) GeneratePostQuantumPrivateKey() (PrivateKey, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapPrivateKey(proxyResult) /* r4 */
+	return ImplementationWrapPrivateKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*
@@ -174,7 +174,7 @@ func (obj *KeyProvider) GenerateCompoundPrivateKey(cipherAlgId AlgId, signerAlgI
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapPrivateKey(proxyResult) /* r4 */
+	return ImplementationWrapPrivateKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*
@@ -193,7 +193,7 @@ func (obj *KeyProvider) GenerateHybridPrivateKey(firstKeyAlgId AlgId, secondKeyA
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapPrivateKey(proxyResult) /* r4 */
+	return ImplementationWrapPrivateKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*
@@ -215,7 +215,7 @@ func (obj *KeyProvider) GenerateCompoundHybridPrivateKey(cipherFirstKeyAlgId Alg
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapPrivateKey(proxyResult) /* r4 */
+	return ImplementationWrapPrivateKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*
@@ -235,7 +235,7 @@ func (obj *KeyProvider) ImportPrivateKey(keyData []byte) (PrivateKey, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapPrivateKey(proxyResult) /* r4 */
+	return ImplementationWrapPrivateKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*
@@ -255,7 +255,7 @@ func (obj *KeyProvider) ImportPublicKey(keyData []byte) (PublicKey, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapPublicKey(proxyResult) /* r4 */
+	return ImplementationWrapPublicKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*

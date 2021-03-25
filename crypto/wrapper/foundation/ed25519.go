@@ -61,7 +61,7 @@ func (obj *Ed25519) GenerateKey() (PrivateKey, error) {
 
 	runtime.KeepAlive(obj)
 
-	return ImplementationWrapPrivateKey(proxyResult) /* r4 */
+	return ImplementationWrapPrivateKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /* Handle underlying C context. */
@@ -167,7 +167,7 @@ func (obj *Ed25519) GenerateEphemeralKey(key Key) (PrivateKey, error) {
 
 	runtime.KeepAlive(key)
 
-	return ImplementationWrapPrivateKey(proxyResult) /* r4 */
+	return ImplementationWrapPrivateKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*
@@ -195,7 +195,7 @@ func (obj *Ed25519) ImportPublicKey(rawKey *RawPublicKey) (PublicKey, error) {
 
 	runtime.KeepAlive(rawKey)
 
-	return ImplementationWrapPublicKey(proxyResult) /* r4 */
+	return ImplementationWrapPublicKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*
@@ -248,7 +248,7 @@ func (obj *Ed25519) ImportPrivateKey(rawKey *RawPrivateKey) (PrivateKey, error) 
 
 	runtime.KeepAlive(rawKey)
 
-	return ImplementationWrapPrivateKey(proxyResult) /* r4 */
+	return ImplementationWrapPrivateKey(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*

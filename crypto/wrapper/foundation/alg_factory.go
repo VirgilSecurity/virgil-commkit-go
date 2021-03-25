@@ -19,7 +19,7 @@ func AlgFactoryCreateHashFromInfo(algInfo AlgInfo) (Hash, error) {
 
 	runtime.KeepAlive(algInfo)
 
-	return ImplementationWrapHash(proxyResult) /* r4 */
+	return ImplementationWrapHash(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*
@@ -30,7 +30,7 @@ func AlgFactoryCreateMacFromInfo(algInfo AlgInfo) (Mac, error) {
 
 	runtime.KeepAlive(algInfo)
 
-	return ImplementationWrapMac(proxyResult) /* r4 */
+	return ImplementationWrapMac(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*
@@ -41,7 +41,7 @@ func AlgFactoryCreateKdfFromInfo(algInfo AlgInfo) (Kdf, error) {
 
 	runtime.KeepAlive(algInfo)
 
-	return ImplementationWrapKdf(proxyResult) /* r4 */
+	return ImplementationWrapKdf(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*
@@ -52,7 +52,7 @@ func AlgFactoryCreateSaltedKdfFromInfo(algInfo AlgInfo) (SaltedKdf, error) {
 
 	runtime.KeepAlive(algInfo)
 
-	return ImplementationWrapSaltedKdf(proxyResult) /* r4 */
+	return ImplementationWrapSaltedKdf(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*
@@ -63,7 +63,7 @@ func AlgFactoryCreateCipherFromInfo(algInfo AlgInfo) (Cipher, error) {
 
 	runtime.KeepAlive(algInfo)
 
-	return ImplementationWrapCipher(proxyResult) /* r4 */
+	return ImplementationWrapCipher(unsafe.Pointer(proxyResult)) /* r4 */
 }
 
 /*
@@ -76,5 +76,5 @@ func AlgFactoryCreatePaddingFromInfo(algInfo AlgInfo, random Random) (Padding, e
 
 	runtime.KeepAlive(random)
 
-	return ImplementationWrapPadding(proxyResult) /* r4 */
+	return ImplementationWrapPadding(unsafe.Pointer(proxyResult)) /* r4 */
 }
